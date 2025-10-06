@@ -17,5 +17,11 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "iconLibrary": "lucide"
+  "iconLibrary": "lucide",
+  "registries": {
+    "default": "https://ui.shadcn.com",
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
+    "@magicui": "https://magicui.design/r/{name}.json",
+    "@kibo": "https://www.kibo-ui.com/r/{name}.json"
+  }
 }

@@ -1,7 +1,3 @@
----
-alwaysApply: false
----
-
 You are implementing a quick component addition using the shadcn MCP server.
 
 STEPS:

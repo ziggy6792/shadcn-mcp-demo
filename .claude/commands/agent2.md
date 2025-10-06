@@ -1,7 +1,3 @@
----
-alwaysApply: false
----
-
 You are researching shadcn components for implementation.
 
 INPUT: design-docs/[task-name]/requirements.md

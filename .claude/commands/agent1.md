@@ -1,7 +1,3 @@
----
-alwaysApply: false
----
-
 You are analyzing requirements for a complex UI build using shadcn MCP.
 
 INPUT: User request for a complete feature/section

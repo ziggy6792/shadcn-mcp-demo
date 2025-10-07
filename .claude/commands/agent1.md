@@ -7,7 +7,8 @@ STEPS:
 1. Call mcp**shadcn**get_project_registries
 
    - Note all available registries
-   - If multiple, use the first or ask user
+   - Use components from aceternity registry with the highest priority
+   - If a suitable component cannot be found in aceternity registry you may fall back to default shadcn components
 
 2. Break down the request into components needed
    Example: "login form" needs:

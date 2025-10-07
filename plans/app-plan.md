@@ -1,197 +1,206 @@
-🧩 Concept Overview
+# 🧠 IssueMind — AI-Powered GitHub Issue Solver (Frontend-Only Plan)
 
-App Name (placeholder): IssueMind
+## 🧩 Concept Overview
 
-Purpose: Help developers triage, prioritize, and solve GitHub issues faster with AI-generated suggestions.
+**App Name (placeholder):** IssueMind
 
-Frontend stack: Next.js + ShadCN/UI + mock API layer
+**Purpose:** Help developers triage, prioritize, and solve GitHub issues faster with AI-generated insights and suggestions.
 
-Design vibe: Developer / dark mode friendly / clear hierarchy
+**Frontend stack:** Framework-agnostic (mocked API layer for demo)
 
----
-
-🧱 Core UX Flow
-
-Think of it as an app where a user:
-
-1. Logs in with GitHub or a demo account
-
-2. Selects a repository
-
-3. Views issues (list + AI insights)
-
-4. Opens an issue to see suggestions, possible fixes, code diffs, and related issues
-
-5. Optionally runs AI actions: explain, summarize, draft PR, etc.
-
-6. Reviews AI outputs via modals or drawers
+**Design vibe:** Developer-friendly, dark mode centric, with a clean information hierarchy.
 
 ---
 
-🔖 Global Layout Components (Shared)
+## 🧱 Core UX Flow
 
-These apply across all pages:
+The app is designed to help users interact fluidly with AI-assisted issue management.
 
-Component Description
-Top Navbar Logo, repo picker dropdown, search bar, AI assistant trigger (button), user menu
-Sidebar Navigation items: Dashboard, Issues, AI Tasks, Settings
-Toast / Snackbar For notifications (e.g., “AI fix generated”, “mock API call complete”)
-Command Palette (⌘K) Quick actions: search issues, jump to repo, trigger AI
-Theme toggle Light/dark switch using ShadCN’s mode toggle
-Right-side Drawer Contextual for "AI suggestions", "Diff preview", or "Auto summaries"
-
----
-
-🗂️ Page Structure
-
-1. /login
-
-- UI Purpose: Authentication entry point (mocked GitHub OAuth)
-
-- Components:
-
-  - ShadCN Card containing login form
-
-  - “Sign in with GitHub” button
-
-  - Mock indicator (since backend is fake)
-
-- Flow: On login, redirects → /dashboard
+1. **Authentication:** User logs in via GitHub or a demo account.
+2. **Repository selection:** User chooses a connected repository.
+3. **Issues overview:** User views a list of open issues enriched with AI insights.
+4. **Issue detail:** Opening an issue shows full context, related discussions, and AI-generated suggestions or diffs.
+5. **AI actions:** User can trigger AI features like explaining, summarizing, or generating potential fixes.
+6. **AI results review:** AI outputs are displayed in contextual modals, drawers, or panels.
 
 ---
 
-2. /dashboard
+## 🔖 Global Layout Components (Shared)
 
-- Purpose: Overview of connected repos and summary of open issues
+These structural elements are present across all pages for consistency.
 
-- Main Components:
-
-  - Repository list (CardGrid, clickable)
-
-  - AI summary section (“This week’s issue trends”)
-
-  - Quick actions (“Auto-prioritize issues”, “Summarize repo”)
-
-- AI Behavior (mocked):
-
-  - Animated placeholder for “AI insights loading”
-
-  - Mocked AI summary blocks
+| Component            | Description                                                                                     |
+| -------------------- | ----------------------------------------------------------------------------------------------- |
+| Top Navigation Bar   | Contains logo, repository selector, global search, AI assistant trigger, and user account menu. |
+| Sidebar              | Main navigation: Dashboard, Issues, AI Tasks, Settings.                                         |
+| Toast / Snackbar     | Displays notifications such as “AI fix generated” or “operation complete.”                      |
+| Command Palette (⌘K) | Allows quick searches, jumping between repositories, or triggering AI actions.                  |
+| Theme Toggle         | Dark/light mode preference switch.                                                              |
+| Right-Side Drawer    | Contextual panel for AI suggestions, diff previews, summaries, or related data.                 |
 
 ---
 
-3. /repo/[name]/issues
+## 🗂️ Page Structure
 
-- Purpose: Main workspace for triaging issues
+### 1. `/login`
 
-- Layout:
+**Purpose:** Allow users to authenticate and start their session.
 
-  - Sidebar: Filters (labels, assignee, open/closed, AI tags like “bug”, “needs reproduction”)
+**UI Elements:**
 
-  - Main Area:
-
-    - Table/List of issues (title, status, last activity, AI urgency/priority)
-
-    - Search bar
-
-    - Sort options
-
-  - Right Drawer: “AI Assist” — summary of all open issues or bulk suggestions
-
-- Interactions:
-
-  - Clicking issue opens /issues/[id]
-
-  - Selecting multiple issues → "Bulk AI actions" (suggest fixes, cluster issues)
+- Login form (email/password) or GitHub OAuth button.
+- Visual indicator simulating authentication (mocked).
+- Redirects to `/dashboard` after login.
 
 ---
 
-4. /repo/[name]/issues/[id]
+### 2. `/dashboard`
 
-- Purpose: Issue detail page — AI-enhanced reading and fix suggestion
+**Purpose:** Provide an overview of connected repositories and summaries of their current issues.
 
-- Layout:
+**Content & Layout:**
 
-  - Issue description (with markdown render)
+- List of repositories with key metrics (issues count, activity).
+- “This week’s issue trends” — a summary or chart of open/closed issues.
+- Quick actions: “Prioritize Issues”, “Summarize Repository Issues”.
+- Placeholder animations or loading skeletons to simulate AI-generated insights.
 
-  - Comments / activity feed
+**User Actions:**
 
-  - Right column tabs:
-
-    - “Suggestions” (AI recommendations)
-
-    - “Fix diff view” (mock code block diff)
-
-    - “Dependencies or related issues”
-
-  - Fixed bottom action bar: “Explain code”, “Generate fix”, “Summarize thread”
-
-- Modals:
-
-  - “AI Generated Fix” (diff preview modal)
-
-  - “Explain this Issue” (shows summarized markdown)
-
-  - “Related Issues” drawer
+- Click a repository → `/repo/[name]/issues`
 
 ---
 
-5. /ai-tasks
+### 3. `/repo/[name]/issues`
 
-- Purpose: Shows current and past AI operations
+**Purpose:** Serve as the central workspace for viewing and managing issues in a repository.
 
-- Components:
+**Layout Structure:**
 
-  - Table: Task name, status (pending, done, failed), timestamp
+- **Sidebar:** Filters and options (labels, assignee, open/closed state, AI tags like “bug”, “needs repro”).
+- **Main Panel:**
+  - Table or list view of issues displaying title, status, last update, and AI priority/urgency score.
+  - Search input and sorting controls.
+- **Right Drawer:** AI summary or “Assist Panel” grouping general insights or recommendations across all issues.
 
-  - Filter and delete task buttons
+**Interactions:**
 
-- Mock behavior:
-
-  - Spinners for tasks marked "in-progress"
-
-  - Placeholder completions ("AI fix ready")
-
----
-
-6. /settings
-
-- Purpose: Mock integration and UI preferences
-
-- Tabs:
-
-  - General (theme, layout)
-
-  - Integrations (GitHub connection mock)
-
-  - Experimental features (AI auto-label toggle)
-
-- Component ideas:
-  - Switch, Tabs, Card, Button, Select (ShadCN variants)
+- Clicking an issue opens `/repo/[name]/issues/[id]`.
+- Selecting multiple issues enables bulk actions (e.g., group suggestions, generate batch summaries).
 
 ---
 
-🧮 Interaction Flow Summary
+### 4. `/repo/[name]/issues/[id]`
 
-    Login → Dashboard → Repo selection → Issues page → Issue detail → AI assist modal/drawer
-                                                            ↓
-                                                      AI Tasks overview
+**Purpose:** Provide a detailed view of an individual issue enhanced by AI insights.
 
-All core user actions branch naturally from “Repo > Issues”.
+**Layout Structure:**
+
+- **Main Content:**
+  - Issue title, metadata (labels, author, creation date).
+  - Issue body displayed with Markdown support.
+  - Comments or activity timeline section.
+- **Right Column Tabs:**
+  - Suggestions: AI analysis or list of recommended next steps.
+  - Fix Preview: Visualization of a mock diff or generated code snippet.
+  - Related Issues: AI-paired similar or dependent issues.
+- **Action Bar (Fixed at Bottom):**
+  - Buttons: “Explain Issue”, “Generate Fix”, “Summarize Discussion”.
+
+**Modal and Drawer Interactions:**
+
+- AI Fix Modal: Displays generated code diff or patch with review options.
+- Explain Modal: Presents concise Markdown summary of the issue.
+- Related Issues Drawer: Shows linked issues detected by AI.
 
 ---
 
-🎨 Component-Level Mock Plan
+### 5. `/ai-tasks`
 
-The goal is to hand this spec to agents who’ll implement UIs using ShadCN components.
+**Purpose:** List and track asynchronous or background AI-generated tasks.
 
-Area Component Type Example ShadCN UI Components
-Layout ResizablePanel, Sidebar, Menubar, Navbar, Drawer Layout scaffold
-Dashboard Cards Card, Skeleton, Badge Repo summaries
-Issue List Table, Badge, DropdownMenu, Button, Separator Issue triage
-Issue Detail Tabs, ScrollArea, Markdown Display, CodeBlock Viewer
-AI Modals Dialog, Accordion, Progress, Alert AI interactions
-Forms Form, Input, Switch, Select Settings & filters
-Feedback Toast, Tooltip, Command System feedback
+**Content:**
+
+- Table view containing task name, status (Pending, Completed, Failed), timestamp.
+- Buttons to filter tasks or clear completed items.
+- Simulated loading spinners for “in-progress” states.
+- Mocked task results, e.g., “Fix ready to review.”
 
 ---
+
+### 6. `/settings`
+
+**Purpose:** Configure system preferences and integrations.
+
+**Tabs & Structure:**
+
+1. **General:** Theme mode, layout density, default repository view.
+2. **Integrations:** Connection settings for GitHub (mocked link/unlink states).
+3. **Experimental:** Toggles for new features like automatic labeling or summary generation.
+
+**Common UI Components:**
+
+- Buttons, switches, dropdowns, and simple forms for user settings.
+
+---
+
+## 🧮 Interaction Flow Summary
+
+Login → Dashboard → Select Repository → View Issues → Open Issue → Trigger AI Action  
+                       ↓  
+                   AI Tasks Overview
+
+- **Login Flow:** Simulated authentication → routed to the main dashboard.
+- **Repository Flow:** Repository selection updates the active workspace context.
+- **Issues Flow:** User navigates between the global issues list and individual issue view.
+- **AI Actions Flow:** When an AI action (Summarize, Generate Fix, Explain) runs, it logs a mock task under `/ai-tasks`.
+- **Task Review Flow:** The result of each AI task can open modals, drawers, or appear as linked summaries in context.
+- **Settings Flow:** User can adjust preferences anytime; persistent mock state remembered locally.
+
+---
+
+## 🧭 User Journey Summary
+
+1. Login: Begin session (GitHub or demo).
+2. Dashboard: Gain insights into repo activity and trends.
+3. Select a Repo: Jump into workspace focused on that project.
+4. Issues Overview: Browse organized issue lists, filter or search.
+5. Issue Detail: Inspect specific issue with AI-contextual assistance.
+6. AI Interaction: Summarize, explain, or generate fix — tracked in “AI Tasks.”
+7. Review: Monitor and manage completed or queued AI processes.
+8. Settings: Adjust preferences or mock integrations.
+
+---
+
+## 🧱 Folder Structure (Optional for Implementation)
+
+```
+src/
+├── app/
+│   ├── login/
+│   ├── dashboard/
+│   ├── repo/[name]/issues/
+│   │   ├── page.tsx
+│   │   ├── [id]/page.tsx
+│   ├── ai-tasks/
+│   ├── settings/
+│   └── layout.tsx
+├── components/
+│   ├── layout/
+│   ├── navigation/
+│   ├── issue/
+│   ├── ai/
+│   └── shared/
+└── lib/
+    ├── mocks/
+    └── utils/
+```
+
+---
+
+## ✅ Implementation Notes
+
+- The app should simulate realistic loading states using placeholders.
+- All AI results, fixes, and summaries are mocked but presented convincingly.
+- Focus is on intuitive navigation and maintaining a consistent developer-focused interface.
+- No backend connectivity required — fully frontend-driven demo.

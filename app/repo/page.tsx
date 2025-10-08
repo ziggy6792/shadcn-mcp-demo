@@ -4,15 +4,15 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { store } from '@/lib/store';
 
-export default function Page() {
+export default function RepoPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const user = store.getUser();
-    if (user) {
-      router.push('/dashboard');
+    const currentRepo = store.getCurrentRepo();
+    if (currentRepo) {
+      router.push(`/repo/${currentRepo}/issues`);
     } else {
-      router.push('/login');
+      router.push('/dashboard');
     }
   }, [router]);
 

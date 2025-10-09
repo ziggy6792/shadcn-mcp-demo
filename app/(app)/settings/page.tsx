@@ -36,7 +36,9 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      <BackgroundGradientAnimation className="absolute inset-0 opacity-20" />
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <BackgroundGradientAnimation />
+      </div>
 
       <div className="relative z-10">
         {/* Header */}

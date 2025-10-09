@@ -3,9 +3,6 @@ import { AnimatePresence, motion } from "motion/react";
 
 import { useState } from "react";
 
-// Default export
-export const CardHoverEffect = HoverEffect;
-
 export const HoverEffect = ({
   items,
   className,
@@ -112,3 +109,6 @@ export const CardDescription = ({
     </p>
   );
 };
+
+// Default export for CardHoverEffect
+export const CardHoverEffect = HoverEffect;

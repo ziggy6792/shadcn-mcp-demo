@@ -2,7 +2,7 @@
 alwaysApply: false
 ---
 
-You are implementing a quick component addition using the shadcn MCP server.
+When implementing ui use shadcn components and the shadcn mcp server.
 
 STEPS:
 
